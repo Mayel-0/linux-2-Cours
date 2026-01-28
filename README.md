@@ -13,21 +13,13 @@
 
 ## Interface WiFi 
 
-*info perso*
-
-Nom : **box bouygues telecom**
-mac adresse : **d6:21:78:d3:cd:c2**
-addresse ip : **192.168.1.147**
-addresse réseaux : **192.168.1.254**
-addresse broadcast : **192.168.1.255**
-
 *info école*
 
-Nom : ****
-mac adresse : ****
-addresse ip : ****
-addresse réseaux : ****
-addresse broadcast : ****
+- Nom : **Wifi@ynov**
+- mac adresse : **6a:b9:52:fd:21:1f**
+- addresse ip : **10.33.70.220**
+- addresse réseaux : **10.33.64.0**
+- addresse broadcast : **10.33.79.255**
 
 ## Interface Ethernet 
 
@@ -66,23 +58,23 @@ la gateway / passerelle c'est un port que l'on utilise sur notre router pour sor
 
 ## Modifier c'est information :
 
-Notre masque est (perso):
+Notre masque est (école):
 
-    255.255.255.0
+    255.255.240.0
 
 donc on est dans une classe C
-donc le calcule est de 8^2-2=254 adresse disponible.
+donc le calcule est de 12^2-2=4094 adresse disponible.
 la Premier est: 
 
-    192.168.1.1
+    10.33.64.1
 
 la dernier est :
 
-    192.168.1.254
+    10.33.79.254
 
 Addresse modifier (perso):
 
-    192.168.1.200
+    10.33.70.200
 
 ## Nmap
 
@@ -96,7 +88,7 @@ pour scanner le réseaux avec nmpa on peut faire
 
 Addresse modifier (perso):
 
-    192.168.1.200
+    10.33.70.200
 
 
 pour cela on doit desactiver le protocole DHCP qui automatiquement asigne a tout appareille connecter au réseaux une addresse ip il faut ce passer en manuel pour pouvoir ce donner nous même une addresse ip.
@@ -111,25 +103,14 @@ II. Exploration locale en duo
 
 ### DHCP
 
-*info perso*
-
-Nom : **box bouygues telecom**
-mac adresse : **d6:21:78:d3:cd:c2**
-addresse ip : **192.168.1.147**
-addresse réseaux : **192.168.1.254**
-addresse broadcast : **192.168.1.255**
-// bail dhcp debut : ****
-// bail dhcp fin : ****
 
 *info école*
 
-Nom : ****
-mac adresse : ****
-addresse ip : ****
-addresse réseaux : ****
-addresse broadcast : ****
-bail dhcp debut : ****
-bail dhcp fin : ****
+- Nom : **Wifi@ynov**
+- mac adresse : **6a:b9:52:fd:21:1f**
+- addresse ip : **10.33.70.220**
+- addresse réseaux : **10.33.64.0**
+- addresse broadcast : **10.33.79.255**
 
 sur macos on na pas vraiment le debut et la fi du bail ip on a ce résultat 
 
