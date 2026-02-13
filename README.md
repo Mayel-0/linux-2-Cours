@@ -2,6 +2,6 @@
 
 **_main tp_**
 
-[TP-1](/TP-2/README.md)
+[TP-2](/TP-2/README.md)
 
-[TP-2](/TP-3/README.md)
+[TP-3](/TP-3/README.md)
