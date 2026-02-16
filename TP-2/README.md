@@ -190,6 +190,10 @@ mac addresse = addresse physique
 
 # TP DUO
 
+**Duo  Mathis Dupre / Mael llado**
+
+https://github.com/Mathisrealone
+
 ### configurattion réseaux
 
 voici les information du PC1 et PC2
