@@ -213,5 +213,20 @@ ensuite on peut tester depuis notre ordinateur si on a bien la page.
 
 <img src="../TP-4/image/testsite.png" height="60%" widgth="60%"/>
 
+## Partie 8 – Firewall et permissions
 
-## 
+    # 1. Créer utilisateur nginx (sécurité)
+
+    adduser -D -s /bin/false nginx 2>/dev/null || true
+
+    # 2. Définir propriétaire nginx (Nginx peut lire)
+
+    chown -R nginx:nginx /var/www/site-tp
+
+    # 3. Permissions sécurisées (755 = drwxr-xr-x)
+
+    chmod -R 755 /var/www/site-tp
+
+on peut ensuite faire c'est commande pour verifier le bon fonctionnement de ngnix et on peut voir que tout fonctionne parfaitement
+
+<img src="../TP-4/image/testfinalep.png" height="60%" widgth="60%"/>
