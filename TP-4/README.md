@@ -230,3 +230,34 @@ ensuite on peut tester depuis notre ordinateur si on a bien la page.
 on peut ensuite faire c'est commande pour verifier le bon fonctionnement de ngnix et on peut voir que tout fonctionne parfaitement
 
 <img src="../TP-4/image/testfinalep.png" height="60%" widgth="60%"/>
+
+## Partie 9 – Validation finale
+
+| Partie   | Objectif                | Commande de vérification                                                         | Statut                 | Résultat obtenu                    |
+| -------- | ----------------------- | -------------------------------------------------------------------------------- | ---------------------- | ---------------------------------- |
+| Partie 1 | VM Ubuntu VirtualBox    | ip a (sur VM) + ping 192.168.11.2 (Mac)                                          | ✅ FAIT                | IP 192.168.11.2 accessible         |
+| Partie 2 | Serveur SSH installé    | ss -tlnp \| grep :2222 (VM)                                                      | ✅ FAIT                | SSH écoute port 2222               |
+|          | Connexion hôte → VM     | ssh -p 2222 etudiant@192.168.11.2                                                | ✅ FAIT                | Connexion OK                       |
+|          | Clés SSH générées       | ssh-copy-id -p 2222 etudiant@192.168.11.2                                        | ✅ FAIT                | Authentification sans mot de passe |
+| Partie 3 | Sécurisation SSH        | `grep -E "PermitRootLogin                                                        | PasswordAuthentication | Port" /etc/ssh/sshd_config`        |
+| Partie 4 | SCP                     | scp -P 2222 fichier.txt etudiant@192.168.11.2:/home/etudiant/                    | ✅ FAIT                | Fichier transféré                  |
+|          | SFTP                    | sftp -P 2222 etudiant@192.168.11.2                                               | ✅ FAIT                | put/get/ls fonctionnels            |
+|          | RSYNC                   | rsync -avz -e "ssh -p 2222" dossier/ etudiant@192.168.11.2:/home/etudiant/       | ✅ FAIT                | Dossier synchronisé                |
+| Partie 5 | Logs SSH                | tail -f /var/log/messages \| grep sshd (VM)                                      | ✅ FAIT                | Logs authentification visibles     |
+| Partie 6 | Tunnel local            | ssh -p 2222 -L 8080:localhost:8080 etudiant@192.168.11.2 -N                      | ✅ FAIT                | curl localhost:8080 connecté       |
+|          | Tunnel distant          | ssh -p 2222 -L 8080:localhost:8080 -R 2223:localhost:22 etudiant@192.168.11.2 -N | ✅ EN COURS            | À tester                           |
+| Partie 7 | Nginx installé          | nginx -v && rc-service nginx status                                              | ✅ FAIT                | Nginx actif                        |
+|          | Site test               | cat /var/www/site-tp/index.html                                                  | ✅ FAIT                | Page HTML présente                 |
+|          | HTTPS + cert auto-signé | curl -k https://192.168.11.2                                                     | ✅ FAIT                | HTML affiché 🎉                    |
+|          | Redirection HTTP→HTTPS  | curl -I http://192.168.11.2                                                      | ✅ À tester            | Doit retourner 301                 |
+| Partie 8 | Permissions Nginx       | ls -la /var/www/site-tp/                                                         | ✅ FAIT                | nginx:nginx + 755                  |
+|          | Firewall                | Ports 80/443 accessibles                                                         | ✅ FAIT                | Site accessible (preuve)           |
+| Partie 9 | SSH port personnalisé   | ssh -p 2222 etudiant@192.168.11.2                                                | ✅ FAIT                | Port 2222 fonctionnel              |
+|          | Auth clés uniquement    | Config PasswordAuthentication no                                                 | ✅ À finaliser         | Désactiver password                |
+|          | Fail2Ban                | fail2ban-client status sshd                                                      | ⚠️ Alpine              | Logs SSH OK                        |
+|          | Transferts fichiers     | SCP/SFTP/RSYNC testés                                                            | ✅ FAIT                | Tous fonctionnels                  |
+|          | Nginx HTTP/HTTPS        | curl -k https://192.168.11.2                                                     | ✅ FAIT                | SITE VISIBLE                       |
+|          | Certificat SSL          | Généré 365 jours                                                                 | ✅ FAIT                | HTTPS fonctionnel                  |
+|          | Permissions /var/www    | nginx:nginx 755                                                                  | ✅ FAIT                | Vérifié                            |
+
+<img src="../TP-4/image/Capture d’écran 2026-02-19 à 12.48.58.png" height="60%" widgth="60%"/>
