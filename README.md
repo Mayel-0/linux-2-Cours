@@ -9,3 +9,5 @@
 [TP-4](/TP-4/README.md)
 
 [TP-5](/TP-5/README.md)
+
+[TP-6](/TP-6/README.md)
